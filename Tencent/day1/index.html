@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>拖动事件处理</title>
+
+    <script type="text/javascript" src='./jquery.js'></script>
+
+    <script type="text/javascript" src='./Event.js'></script>
+
+</head>
+
+<body>
+
+    <div>
+
+        <div id="draggable" class="draggable" style="position: relative;width: 200px;height:100px;left: 300px;top: 200px;border: 1px solid red">
+
+            <p style="border: 1px solid green">
+
+                <span>哈哈哈哈哈</span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    (function(window, $) {
+
+        var d = $m.dragEvent();
+
+        var fun = function(e) {
+
+            console.log(e.type);
+
+        }
+
+        d.addEvent("dragstart", fun);
+
+        d.addEvent("dragend", function() {
+
+            alert(123);
+
+        });
+
+        d.addEvent("dragend", fun);
+
+        d.removeEvent("dragend", fun);
+
+        // d.ennable1("#draggable")
+    })(window, $)
+</script>
+
+</html>

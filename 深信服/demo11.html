@@ -1,0 +1,14 @@
+<script>
+    let Base = {
+        name: 'base'
+    }
+    let A = function() {
+        this.name = 'a'
+    }
+    A.prototype = Object.create(Base)
+    let a = new A()
+    Base.name = 'new_name'
+    console.log(a.name)
+    delete a.name
+    console.log(a.name)
+</script>

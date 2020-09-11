@@ -1,0 +1,12 @@
+<script>
+    let xx = {
+        sf: 100
+    }
+    Object.defineProperty(xx, 'sf', {
+        get() {
+            return 200
+        }
+    })
+    xx.sf = 300
+    console.log(xx.sf)
+</script>

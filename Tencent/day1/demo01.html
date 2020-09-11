@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ordered-container">
+        <!-- <div class="item">
+            {{ item.label }}
+        </div> -->
+    </div>
+
+    <script>
+        var data = [{
+            label: "Item 1"
+        }, {
+            label: "Item 2"
+        }, {
+            label: "Item 3"
+        }]
+
+        /* 编写代码在 ordered-container 显示 data 中的 label 数据。
+         *
+         *  <div id="ordered-container">
+         *      <div class="item">
+         *          Item 1
+         *      </div>
+         *      <div class="item">
+         *          Item 2
+         *      </div>
+         *      <div class="item">
+         *          Item 3
+         *      </div>
+         *  </div>
+         *
+         *  用户可以通过拖拽来改变 ordered-container 子项的顺序，data 数组中的 item 顺序随之更改。
+         */
+
+
+
+        function setupOrderedContainers() {
+
+            var orderedContainer = document.querySelector('#id');
+            data.forEach((item, index) => {
+                var newNode = document.createElement("div")
+                newNode.setAttribute("class", "item")
+                newNode.innerHTML = data[index].label;
+
+                orderedContainer.appendChild(newNode)
+            })
+        }
+        window.onLoad(() => {
+            setupOrderedContainers();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        table.game {
+            font-size: 14px;
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        table.game td {
+            border: 1px solid #e1e1e1;
+            padding: 0;
+            height: 30px;
+            text-align: center;
+        }
+        
+        table.game td.current {
+            background: #1890ff;
+        }
+        
+        table.game td.wrap {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="jsContainer">
+        <table class="game">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="current"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                    <td class="wrap"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="wrap"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function bind() {
+            var tdGroup = document.querySelectorAll('td')
+            var trGroup = document.querySelectorAll('tr')
+            var trNum = trGroup.length
+            console.log(trNum);
+            //添加唯一id
+            for (var i = 0; i < tdGroup.length; i++) {
+                tdGroup[i].setAttribute("id", i)
+            }
+            //循环绑定点击事件
+            for (var i = 0; i < tdGroup.length; i++) {
+                tdGroup[i].onclick = function() {
+                    //行，列数目
+                    var id = Number(this.getAttribute("id"))
+                    if ((id + 1) % 9 === 0) {
+                        var row = (id + 1) / 9
+                        var col = 9
+                    } else {
+                        var row = Math.floor((id + 1) / 9) + 1
+                        var col = (id + 1) % 9
+                    }
+                    console.log(row, col)
+
+
+                    for (var j = 0; j < tdGroup.length; j++) {
+                        //移除类
+                        tdGroup[j].setAttribute("class", '')
+                    }
+                    //添加蓝色类
+                    this.setAttribute("class", "current")
+                        //添加灰色类
+                        // 行添加
+                    for (var r = (row - 1) * 9; r < row * 9; r++) {
+                        tdGroup[r].classList.add("wrap")
+                    };
+                    //列添加类wrap
+
+
+                    document.getElementById("#" + c + "").classList.add("wrap")
+
+
+
+                };
+            };
+
+        };
+        bind()
+    </script>
+</body>
+
+</html>

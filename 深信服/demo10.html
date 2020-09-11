@@ -1,0 +1,13 @@
+<script>
+    function Sf() {}
+    Sf.prototype.name = 100
+
+    let a = new Sf()
+    console.log(a.name)
+    Sf.prototype.name = 200
+    console.log(a.name)
+    Sf.prototype = {
+        name: 300
+    }
+    console.log(a.name)
+</script>

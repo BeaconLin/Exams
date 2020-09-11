@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        console.log(window.isNaN("abc"))
+        console.log(Number.isNaN("abc"))
+        let arr = [1, 2, 3, 4, 5, 6]
+        arr.splice(1, 2, 3)
+
+        let result = arr.filter(val => val % 2 === 0).map(val => val * val).reduce((val1, val2) => val1 + val2);
+        console.log(arr)
+        console.log(arr.pop())
+        console.log(arr.length)
+        console.log(result)
+        var arr1 = [2, 4, 6]
+        console.log(arr1.pop())
+        console.log(arr1)
+        let res = arr1.reduce((val1, val2) => {
+            console.log(val1 + val2)
+            return val1 + val2
+        })
+        console.log(res)
+    </script>
+</body>
+
+</html>
